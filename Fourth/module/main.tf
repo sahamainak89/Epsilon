@@ -18,9 +18,14 @@ resource "aws_instance" "srv01" {
    }
  }
 
+ data "aws_availability_zones" "available_zones" {
+  
+}
+
  resource "aws_subnet" "publicsubnets" {  
    vpc_id =  aws_vpc.TrainingMain.id
    cidr_block = "${var.public_subnets}"
+   availability_zone = data.aws_availability_zones.available_zones.names[0]
    depends_on = [
     aws_vpc.TrainingMain 
   ] 
@@ -29,6 +34,7 @@ resource "aws_instance" "srv01" {
  resource "aws_subnet" "privatesubnets" {
    vpc_id =  aws_vpc.TrainingMain.id
    cidr_block = "${var.private_subnets}"
+   availability_zone = data.aws_availability_zones.available_zones.names[1]
    depends_on = [
     aws_vpc.TrainingMain 
   ]         
