@@ -8,14 +8,14 @@ resource "aws_security_group" "mssg" {
   name   = "aws_lb_mssg"
   vpc_id = aws_vpc.emessVPC.id
 
-  ingress  {
+  ingress {
     cidr_blocks = ["0.0.0.0/0"]
     from_port   = 80
     protocol    = "tcp"
     to_port     = 80
   }
 
-  egress  {
+  egress {
     cidr_blocks = ["0.0.0.0/0"]
     from_port   = 0
     protocol    = -1

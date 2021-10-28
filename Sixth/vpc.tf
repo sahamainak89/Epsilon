@@ -59,7 +59,7 @@ resource "aws_route_table" "ms_private" {
   count  = local.subnet_count
   vpc_id = aws_vpc.emessVPC.id
 
-  route  {
+  route {
     cidr_block     = "0.0.0.0/0"
     nat_gateway_id = element(aws_nat_gateway.msnat.*.id, count.index)
   }
