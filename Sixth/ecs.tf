@@ -15,7 +15,7 @@ resource "aws_ecs_task_definition" "Intro" {
   container_definitions    = <<DEFINITION
 [
   {
-    "image": "heroku/nodejs-intro",
+    "image": "heroku/nodejs-hello-world",
     "cpu": 1024,
     "memory": 2048,
     "name": "intro-app",
