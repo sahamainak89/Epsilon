@@ -2,10 +2,10 @@ provider "aws" {
   region = "us-east-1"
 }
 
-/*terraform {
+terraform {
   backend "s3" {
     key = "dev/mstfstate"
-    bucket = "emess01"
-    region = "us-west-1"
+    bucket = "emess"
+    region = "ap-south-1"
   }
-}*/
+}
